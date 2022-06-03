@@ -1,6 +1,7 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
+import joblib
 
 
 def main():
@@ -10,7 +11,7 @@ def main():
     st.sidebar.header('Menu')
     st.sidebar.markdown("Drag the sliders")
 
-    pclass = st.sidebar.selectbox('Pclass', ['1등석', '2등석', '3등석'])
+    pclass = st.sidebar.selectbox('Pclass', [1, 2, 3])
     sex = st.sidebar.radio('Sex',['Male','Female'])
     age = st.sidebar.slider('Age',1,120,30,1)
     embarked = st.sidebar.selectbox('Embarked', ['Cherbourg', 'Queenstown', 'Southampton'])
@@ -21,8 +22,18 @@ def main():
     column_list = df.columns
     choice_list = st.multiselect('컬럼을 선택하세요',column_list)
     df[choice_list]
-
     st.dataframe(print(choice_list))
+
+    classifier = joblib.load('data/classifier.pkl')
+    scaler_X = joblib.load('data/scaler_X.pkl')
+    scaler_y = joblib.load('data/scaler_y.pkl')
+    encoder = joblib.load('data/encoder.pkl')
+    
+    encoder.fit(pclass)
+    new_data = np.array([['pclass','sex','age','embarked']])
+    new_data2 = np.vectorize(new_data)
+    X_new = scaler_X.transform(new_data)
+    X_new = X_new.toarray()
 
 
     # menu = ['home']
