@@ -29,6 +29,7 @@ def main():
     scaler_y = joblib.load('data/scaler_y.pkl')
     encoder = joblib.load('data/encoder.pkl')
     
+    pclass = [[pclass]]
     encoder.fit(pclass)
     new_data = np.array([['pclass','sex','age','embarked']])
     new_data2 = np.vectorize(new_data)
