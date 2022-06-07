@@ -106,6 +106,8 @@ def main():
     st.write(fig)
     st.subheader('\n')
 
+    st.write('---')
+
     st.subheader('*️⃣성별과 생존과의 관계')
     labels = [x for x in df.Sex.value_counts().index]
     values = df.Sex.value_counts()
@@ -114,6 +116,8 @@ def main():
     fig.update_traces(marker=dict(colors=night_colors))
     st.write(fig)
     st.subheader('\n')
+
+    st.write('---')
 
 
     st.subheader('*️⃣선착장과 생존과의 관계')
@@ -133,6 +137,8 @@ def main():
                     title = 'Embarked Q vs. Survived'), row=1, col=3)
     fig.update_traces(marker=dict(colors=night_colors))
     st.write(fig)
+
+    st.write('---')
 
 
     st.subheader('*️⃣요금과 생존과의 관계')
