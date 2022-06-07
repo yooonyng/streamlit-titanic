@@ -14,7 +14,7 @@ import plotly.graph_objects as go
 from plotly.subplots import make_subplots
 import plotly.offline as py
 
-night_colors = ['lightskyblue', 'navy', 'snow','aliceblue']
+night_colors = ['#1d29d1','#fefffc','#d6f089','#edfffd','#d6f089','#f0fcca']
 
 
 def main():
@@ -101,7 +101,7 @@ def main():
 
 
     st.subheader('*️⃣나이와 생존과의 관계')
-    fig = px.histogram(df, x='Age',  color_discrete_sequence=['lightskyblue'], barmode='overlay')
+    fig = px.histogram(df, x='Age',  color_discrete_sequence=['#1d29d1'], barmode='overlay')
     fig.update_layout(title="Age")
     st.write(fig)
     st.subheader('\n')
@@ -148,7 +148,6 @@ def main():
         ,color = 'Survived',
         size='Parch',
         hover_data=['Sex', 'Age'],
-        color_discrete_sequence =['navy','#57A7F3','#D3DBDD'],
         title="Age vs Fare")
     st.write(fig)
     st.subheader('\n')
