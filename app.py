@@ -102,21 +102,21 @@ def main():
     st.subheader('\n')
     st.subheader('\n')
 
-    st.subheader('*️⃣나이와 생존과의 관계')
+    st.subheader('*️⃣나이별 승객 현황 확인')
     st.write('---')
     col1,col2 = st.columns(2)
     with col1:
-        st.subheader('*\"나이가 어릴수록 생존율이 높을까?\"*')
+        st.subheader('*\"나이대별로 승객이 얼마나 있었을까?\"*')
         image = Image.open('data/img04.jpg')
         st.image(image)
     with col2:
-        fig = px.histogram(df, x='Age',  color_discrete_sequence=['#1d29d1'], barmode='overlay')
+        fig = px.histogram(df, x=['Age'], color_discrete_sequence=['#1d29d1'], barmode='overlay')
         fig.update_layout(title="Age")
         st.write(fig)
-    st.subheader('\n')
-    st.subheader('\n')
-    st.subheader('\n')
 
+    st.subheader('\n')
+    st.subheader('\n')
+    st.subheader('\n')
 
 
     st.subheader('*️⃣성별과 생존과의 관계')
@@ -131,15 +131,23 @@ def main():
         st.caption('Titanic Inquiry Project')
 
     with col2:
-        labels = [x for x in df.Sex.value_counts().index]
-        values = df.Sex.value_counts()
-        fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.3,pull=[0.03, 0])])
-        fig.update_layout(title_text="Gender")
-        fig.update_traces(marker=dict(colors=night_colors))
-        st.write(fig)
+        # labels = [x for x in df.Sex.value_counts().index]
+        # values = df.Sex.value_counts()
+        # fig = go.Figure(data=[go.Pie(labels=labels, values=values, hole=.3,pull=[0.03, 0])])
+        # fig.update_layout(title_text="Gender")
+        # fig.update_traces(marker=dict(colors=night_colors))
+        # st.write(fig)
+
+        fig2 = px.pie(df,names=['Male', 'Female'],
+        values=[35.2,64.8],
+        color_discrete_sequence=px.colors.sequential.haline,
+        title='Gender')
+        st.plotly_chart(fig2)
+
     st.subheader('\n')
     st.subheader('\n')
     st.subheader('\n')
+
 
 
 
@@ -193,19 +201,6 @@ def main():
 
     
     
-
-    # st.subheader('2. 최근 소년범죄 이슈')
-    # col1,col2,col3 = st.columns(3)
-    # with col1:
-    #     gif_html = get_img_with_href('data/sum01.png', 'https://www.youtube.com/watch?v=h-WmvzCtRh0')
-    #     st.markdown(gif_html, unsafe_allow_html=True)
-    # with col2:
-    #     pass
-    # with col3:
-    #     st.subheader('끊임없는 촉법소년 논란 연령하향 해야 vs 처벌이 능사는 아냐')
-    #     st.text('#촉법소년 #소년법 #촉법소년범죄')
-    # st.text('\n')
-    # st.text('\n')
 
 
 
