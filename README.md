@@ -11,7 +11,6 @@ http://ec2-15-164-104-66.ap-northeast-2.compute.amazonaws.com:8504/
 3. 데이터 분석 목적
 4. 데이터 분포를 통해서 알 수 있는 점
 5. 저작권, 라이선스 정보
-6. 일정
 ``` 
 
 ## 1️⃣. 데이터셋 확인하기
@@ -130,20 +129,63 @@ fig = px.scatter(data_frame = df
 ```
 ![Alt text](/data/chart05.png)
 
+5. 데이터프레임과 통계치를 선택해서 확인할 수 있다
+
+```python
+radio_menu = ['데이터프레임','통계치']
+    selected = st.radio('',radio_menu)
+
+    if selected == radio_menu[0]:
+        st.dataframe(df)
+    elif selected == radio_menu[1]:
+        st.dataframe(df.describe())
+```
+![Alt text](/data/chart06.png)
+
+6. 해당 컬럼의 최대값 데이터와 최소값 데이터를 확인할 수 있다
+
+```python
+col_list = df.columns[4:]
+    selected_col = st.selectbox('최대 최소 원하는 컬럼 선택',col_list)
+    col1,col2 = st.columns(2)
+    with col1:
+        df_max = df.loc[df[selected_col] == df[selected_col].max(),]
+        st.text('{}컬럼의 최대값에 해당하는 데이터입니다.'.format(selected_col))
+        st.dataframe(df_max)
+    with col2:
+        df_min = df.loc[df[selected_col] == df[selected_col].min(),]
+        st.text('{}컬럼의 최소값에 해당하는 데이터입니다.'.format(selected_col))
+        st.dataframe(df_min)
+```
+![Alt text](/data/chart07.png)
+
+
+7. 상관계수 확인하기
+
+```python
+selected_list = st.multiselect(' ',col_list)
+    if len(selected_list) > 1:    
+        fig1 = sb.pairplot(data=df[selected_list])
+        st.pyplot(fig1)
+    
+        st.subheader('선택하신 컬럼끼리의 상관계수입니다.')
+        st.dataframe(df[selected_list].corr())
+
+        fig2 = plt.figure()
+        sb.heatmap(data=df[selected_list].corr(),annot=True,fmt='.2f',
+            vmin=-1,vmax=1,cmap='coolwarm',linewidths=0.5)
+        st.pyplot(fig2)
+```
+![Alt text](/data/chart08.png)
+![Alt text](/data/chart09.png)
+![Alt text](/data/chart10.png)
+
+
 
 ## 5️⃣. 저작권, 라이선스 정보
 - [📁 캐글](https://www.kaggle.com/competitions/titanic)   
 - [📁 네이버 지식백과](https://terms.naver.com/entry.naver?docId=3574197&cid=58940&categoryId=58956)
 
 
-## 6️⃣. 일정
 
-| Day | 작업 | 내용 |
-| ------ | -- |----------- |
-|  1일 | ☑️ | 데이터 탐색 및 데이터 선택 |
-|  2일 | ☑️ | 코랩 데이터 기획 & 분석 |
-|  3일 | ☑️ | 코랩 데이터 기획 & 분석, 서버연결 |
-|  6일 | ☑️ | 비주얼 스튜디오 스트림릿 차트 작업 |
-|  7일 | ☑️ | 비주얼 스튜디오 스트림릿 차트 작업 |
-|  8일 | ☑️ | 비주얼 스튜디오 스트림릿 차트 작업 |
 
