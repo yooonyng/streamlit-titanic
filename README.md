@@ -1,5 +1,5 @@
 # **🚢타이타닉 생존 여부 확인하기**
-![Alt text](/data/chart08.png)
+![Alt text](/data/img08.png)
 
 ``` C
 📌목차
