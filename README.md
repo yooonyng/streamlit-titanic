@@ -15,6 +15,7 @@ http://ec2-15-164-104-66.ap-northeast-2.compute.amazonaws.com:8504/
 ``` 
 
 ## 1️⃣. 데이터셋 확인하기
+타이타닉 데이터를 통해 승객 정보를 확인할 수 있다.
 ``` C
 # Survived - 생존 여부 (0 = 사망, 1 = 생존)
 # Pclass - 티켓 클래스 (1 = 1등석, 2 = 2등석, 3 = 3등석)
@@ -27,8 +28,23 @@ http://ec2-15-164-104-66.ap-northeast-2.compute.amazonaws.com:8504/
 # Cabin - 수하물 번호
 # Embarked - 선착장 (C = Cherbourg, Q = Queenstown, S = Southampton)
 ``` 
-타이타닉 데이터를 통해 승객 정보를 확인할 수 있다.
-먼저 필요없는 데이터인 'Cabin', 'Ticket', 'PassengerId'는 삭제해준다.
+☑️ 필요없는 데이터인 'Cabin', 'Ticket', 'PassengerId'는 drop했다.
+```python
+train = train.drop(['Cabin', 'Ticket', 'PassengerId'], axis=1)
+```
+☑️ X와 y 나누기
+```python
+X = train[['Pclass','Sex','Age','SibSp','Parch','Fare','Embarked']]
+X = train.iloc[:,1:]
+y = train['Survived']
+```
+☑️ 문자열인 레이블 인코더로 'Embarked','Sex'컬럼을 학습시키기 위해 숫자로 인코딩했다.
+```python
+encoder = LabelEncoder()
+encoder.fit(train['Sex'])
+train['Sex'] = encoder.fit_transform(train['Sex'])
+train['Embarked'] = encoder.fit_transform(train['Embarked'])
+```
 
 
 ## 2️⃣. 라이브러리
