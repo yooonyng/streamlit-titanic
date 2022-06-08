@@ -35,6 +35,7 @@ import matplotlib.pyplot as plt
 from PIL import Image
 import os
 import base64
+import plotly.graph_objects as go
 ``` 
 타이타닉 데이터를 통해 승객 정보를 확인할 수 있다.
 먼저 필요없는 데이터인 'Cabin', 'Ticket', 'PassengerId'는 삭제해준다.
