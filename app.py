@@ -3,16 +3,16 @@ import joblib
 import numpy as np
 import pandas as pd
 import seaborn as sb
-import altair as alt
+# import altair as alt
 import plotly.express as px
 import matplotlib.pyplot as plt
 from PIL import Image
-import os
-import base64
-import plotly.figure_factory as ff
+# import os
+# import base64
+# import plotly.figure_factory as ff
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
-import plotly.offline as py
+# import plotly.offline as py
 
 night_colors = ['#1d29d1','#fefffc','#d6f089','#edfffd','#d6f089','#f0fcca']
 
