@@ -1,10 +1,13 @@
 # **🚢타이타닉 생존 여부 확인하기**
-![Alt text](/data/img09.jpg)
+``` C
+http://ec2-15-164-104-66.ap-northeast-2.compute.amazonaws.com:8504/
+``` 
+![Alt text](/data/img10.jpg)
 
 ``` C
 📌목차
 1. 데이터셋 확인하기
-2. 타이타닉호의 침몰
+2. 라이브러리
 3. 데이터 분석 목적
 4. 데이터 분포를 통해서 알 수 있는 점
 5. 저작권, 라이선스 정보
@@ -12,6 +15,7 @@
 ``` 
 
 ## 1️⃣. 데이터셋 확인하기
+타이타닉 데이터를 통해 승객 정보를 확인할 수 있다.
 ``` C
 # Survived - 생존 여부 (0 = 사망, 1 = 생존)
 # Pclass - 티켓 클래스 (1 = 1등석, 2 = 2등석, 3 = 3등석)
@@ -24,17 +28,33 @@
 # Cabin - 수하물 번호
 # Embarked - 선착장 (C = Cherbourg, Q = Queenstown, S = Southampton)
 ``` 
-타이타닉 데이터를 통해 승객 정보를 확인할 수 있다.
-먼저 필요없는 데이터인 'Cabin', 'Ticket', 'PassengerId'는 삭제해준다.
+☑️ 필요없는 데이터인 'Cabin', 'Ticket', 'PassengerId'는 drop했다.
+```python
+train = train.drop(['Cabin', 'Ticket', 'PassengerId'], axis=1)
+```
+☑️ X와 y 나누기
+```python
+X = train[['Pclass','Sex','Age','SibSp','Parch','Fare','Embarked']]
+X = train.iloc[:,1:]
+y = train['Survived']
+```
+☑️ 문자열인 레이블 인코더로 'Sex'컬럼을 학습시키기 위해 숫자로 인코딩했다.
+```python
+encoder = LabelEncoder()
+encoder.fit(train['Sex'])
+train['Sex'] = encoder.fit_transform(train['Sex'])
+```
 
 
-## 2️⃣. 타이타닉호의 침몰
-타이타닉 호가 1912년 북대서양에서 침몰한 사고로 세계에서 가장 유명한 침몰선이다.
-1912년 4월 14일 타이타닉호는 2,200여명의 승선자 중 에드워드 스미스(Edward Smith)선장을 포함한 1,500여명과 함께 차가운 바닷속으로 가라앉았다.
-- 기록이 상세히 남아있다.
-- 유명인과 귀족이 상당수 탑승해있었다.
-- 선진 강대국 대영제국의 배로 미국인과 영국인들이 대부분이었다.
-- 당시 타이타닉은 세계 최대 규모와 최첨단 기술로 가장 유명한 배로 첫 항해에 침몰했다.
+## 2️⃣. 라이브러리
+- [streamlit](https://streamlit.io/)   
+- [joblib](https://joblib.readthedocs.io/en/latest/)
+- [numpy](https://numpy.org/)
+- [pandas](https://pandas.pydata.org/)
+- [seaborn](https://seaborn.pydata.org/)
+- [plotly](https://plotly.com/python/)
+- [matplotlib](https://matplotlib.org/)
+
 
 
 ## 3️⃣. 데이터 분석 목적
@@ -126,3 +146,4 @@ fig = px.scatter(data_frame = df
 |  6일 | ☑️ | 비주얼 스튜디오 스트림릿 차트 작업 |
 |  7일 | ☑️ | 비주얼 스튜디오 스트림릿 차트 작업 |
 |  8일 | ☑️ | 비주얼 스튜디오 스트림릿 차트 작업 |
+
