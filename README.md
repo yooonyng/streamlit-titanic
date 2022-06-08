@@ -178,7 +178,7 @@ selected_list = st.multiselect(' ',col_list)
 ```
 ![Alt text](/data/chart08.png)
 ![Alt text](/data/chart09.png)
-![Alt text](/data/chart10.png){: width="100" height="100"}
+![Alt text](/data/chart10.png)
 
 
 
