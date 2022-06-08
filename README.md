@@ -38,12 +38,11 @@ X = train[['Pclass','Sex','Age','SibSp','Parch','Fare','Embarked']]
 X = train.iloc[:,1:]
 y = train['Survived']
 ```
-☑️ 문자열인 레이블 인코더로 'Embarked','Sex'컬럼을 학습시키기 위해 숫자로 인코딩했다.
+☑️ 문자열인 레이블 인코더로 'Sex'컬럼을 학습시키기 위해 숫자로 인코딩했다.
 ```python
 encoder = LabelEncoder()
 encoder.fit(train['Sex'])
 train['Sex'] = encoder.fit_transform(train['Sex'])
-train['Embarked'] = encoder.fit_transform(train['Embarked'])
 ```
 
 
