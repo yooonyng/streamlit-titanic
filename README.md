@@ -1,4 +1,7 @@
 # **🚢타이타닉 생존 여부 확인하기**
+``` C
+http://ec2-15-164-104-66.ap-northeast-2.compute.amazonaws.com:8504/
+``` 
 ![Alt text](/data/img10.jpg)
 
 ``` C
