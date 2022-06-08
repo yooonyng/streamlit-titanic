@@ -183,9 +183,8 @@ def main():
     with col1:
         st.subheader('*\"비싼 요금을 냈다면 생존율이 높을까?\"*')
         st.text('사고로 1,514명이 사망했고\n710명이 구조되었습니다.')
-        image = Image.open('data/img06.jpg')
+        image = Image.open('data/img10.jpg')
         st.image(image)
-        st.caption('타이타닉호의 침몰, 또 다른 이야기: http://memorialnews.net/news/article.html?no=11768')
     with col2:
         fig = px.scatter(data_frame = df
             ,x = 'Fare'
@@ -198,6 +197,54 @@ def main():
     st.subheader('\n')
     st.subheader('\n')
     st.subheader('\n')
+
+
+    st.subheader('*️⃣데이터프레임과 통계치를 선택')
+    st.write('---')
+    radio_menu = ['데이터프레임','통계치']
+    selected = st.radio('',radio_menu)
+
+    if selected == radio_menu[0]:
+        st.dataframe(df)
+    elif selected == radio_menu[1]:
+        st.dataframe(df.describe())
+    st.subheader('\n')
+    st.subheader('\n')
+    st.subheader('\n')
+
+    st.subheader('*️⃣해당 컬럼의 최대값 데이터와 최소값 데이터')
+    st.write('---')
+    col_list = df.columns[4:]
+    selected_col = st.selectbox('최대 최소 원하는 컬럼 선택',col_list)
+    col1,col2 = st.columns(2)
+    with col1:
+        df_max = df.loc[df[selected_col] == df[selected_col].max(),]
+        st.text('{}컬럼의 최대값에 해당하는 데이터입니다.'.format(selected_col))
+        st.dataframe(df_max)
+    with col2:
+        df_min = df.loc[df[selected_col] == df[selected_col].min(),]
+        st.text('{}컬럼의 최소값에 해당하는 데이터입니다.'.format(selected_col))
+        st.dataframe(df_min)
+    st.subheader('\n')
+    st.subheader('\n')
+    st.subheader('\n')
+
+
+    st.subheader('*️⃣상관계수 확인하기')
+    st.write('---')
+    selected_list = st.multiselect(' ',col_list)
+    if len(selected_list) > 1:    
+        fig1 = sb.pairplot(data=df[selected_list])
+        st.pyplot(fig1)
+    
+        st.subheader('선택하신 컬럼끼리의 상관계수입니다.')
+        st.dataframe(df[selected_list].corr())
+
+        fig2 = plt.figure()
+        sb.heatmap(data=df[selected_list].corr(),annot=True,fmt='.2f',
+            vmin=-1,vmax=1,cmap='coolwarm',linewidths=0.5)
+        st.pyplot(fig2)
+
 
     
     
