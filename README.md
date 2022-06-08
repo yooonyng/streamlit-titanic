@@ -178,8 +178,7 @@ selected_list = st.multiselect(' ',col_list)
 ```
 ![Alt text](/data/chart08.png)
 ![Alt text](/data/chart09.png)
-![Alt text](/data/chart10.png)
-
+![Alt text](/data/chart10.png){: width="80%" height="80%"}
 
 
 ## 5️⃣. 저작권, 라이선스 정보
