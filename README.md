@@ -1,4 +1,5 @@
 # **🚢타이타닉 생존 여부 확인하기**
+![Alt text](/data/chart08.png)
 
 ``` C
 📌목차
@@ -90,6 +91,7 @@ labels = [x for x in df.Embarked.value_counts().index]
     st.write(fig)
 ```
 ![Alt text](/data/chart03.png)
+![Alt text](/data/chart04.png)
 ---
 
 4. 요금과 생존과의 관계를 살펴보니 비싼 표를 지불한 승객의 생존률이 높았다.
@@ -107,7 +109,7 @@ fig = px.scatter(data_frame = df
             title="Age vs Fare")
         st.write(fig)
 ```
-![Alt text](/data/chart04.png)
+![Alt text](/data/chart05.png)
 
 
 ## 5️⃣. 저작권, 라이선스 정보
