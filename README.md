@@ -177,8 +177,7 @@ selected_list = st.multiselect(' ',col_list)
         st.pyplot(fig2)
 ```
 ![Alt text](/data/chart08.png)
-![Alt text](/data/chart09.png)
-![Alt text](/data/chart10.png)
+![Alt text](/data/chart09.png)![Alt text](/data/chart10.png)
 
 
 
