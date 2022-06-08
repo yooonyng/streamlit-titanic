@@ -4,7 +4,7 @@
 ``` C
 📌목차
 1. 데이터셋 확인하기
-2. 타이타닉호의 침몰
+2. 라이브러리
 3. 데이터 분석 목적
 4. 데이터 분포를 통해서 알 수 있는 점
 5. 저작권, 라이선스 정보
@@ -28,13 +28,15 @@
 먼저 필요없는 데이터인 'Cabin', 'Ticket', 'PassengerId'는 삭제해준다.
 
 
-## 2️⃣. 타이타닉호의 침몰
-타이타닉 호가 1912년 북대서양에서 침몰한 사고로 세계에서 가장 유명한 침몰선이다.
-1912년 4월 14일 타이타닉호는 2,200여명의 승선자 중 에드워드 스미스(Edward Smith)선장을 포함한 1,500여명과 함께 차가운 바닷속으로 가라앉았다.
-- 기록이 상세히 남아있다.
-- 유명인과 귀족이 상당수 탑승해있었다.
-- 선진 강대국 대영제국의 배로 미국인과 영국인들이 대부분이었다.
-- 당시 타이타닉은 세계 최대 규모와 최첨단 기술로 가장 유명한 배로 첫 항해에 침몰했다.
+## 2️⃣. 라이브러리
+- [streamlit](https://streamlit.io/)   
+- [joblib](https://joblib.readthedocs.io/en/latest/)
+- [numpy](https://numpy.org/)
+- [pandas](https://pandas.pydata.org/)
+- [seaborn](https://seaborn.pydata.org/)
+- [plotly](https://plotly.com/python/)
+- [matplotlib](https://matplotlib.org/)
+
 
 
 ## 3️⃣. 데이터 분석 목적
@@ -126,3 +128,4 @@ fig = px.scatter(data_frame = df
 |  6일 | ☑️ | 비주얼 스튜디오 스트림릿 차트 작업 |
 |  7일 | ☑️ | 비주얼 스튜디오 스트림릿 차트 작업 |
 |  8일 | ☑️ | 비주얼 스튜디오 스트림릿 차트 작업 |
+
