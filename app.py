@@ -78,24 +78,24 @@ def main():
         # 생존 아님 = 0
 
         if y_pred[0] == 1 :
-            st.subheader('살았따,,')
+            st.subheader('당신은 살았습니다.')
             # image = Image.open('data/img03.gif')
             # st.image(image)
-            file_ = open("data/img03.gif", "rb")
-            contents = file_.read()
-            data_url = base64.b64encode(contents).decode("utf-8")
-            file_.close()
+            # file_ = open("data/img03.gif", "rb")
+            # contents = file_.read()
+            # data_url = base64.b64encode(contents).decode("utf-8")
+            # file_.close()
         elif y_pred[0] == 0 :
-            st.subheader('죽었따.')
+            st.subheader('당신은 죽었습니다.')
             # image = Image.open('data/img02.gif')
             # st.image(image)
-            file_ = open("data/img02.gif", "rb")
-            contents = file_.read()
-            data_url = base64.b64encode(contents).decode("utf-8")
-            file_.close()
-        st.markdown(
-            f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
-            unsafe_allow_html=True,)
+            # file_ = open("data/img02.gif", "rb")
+            # contents = file_.read()
+            # data_url = base64.b64encode(contents).decode("utf-8")
+            # file_.close()
+        # st.markdown(
+        #     f'<img src="data:image/gif;base64,{data_url}" alt="cat gif">',
+        #     unsafe_allow_html=True,)
         
     st.write('---')
 
