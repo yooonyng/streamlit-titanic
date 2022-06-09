@@ -160,25 +160,7 @@ col_list = df.columns[4:]
 ![Alt text](/data/chart07.png)
 
 
-7. 상관계수 확인하기
 
-```python
-selected_list = st.multiselect(' ',col_list)
-    if len(selected_list) > 1:    
-        fig1 = sb.pairplot(data=df[selected_list])
-        st.pyplot(fig1)
-    
-        st.subheader('선택하신 컬럼끼리의 상관계수입니다.')
-        st.dataframe(df[selected_list].corr())
-
-        fig2 = plt.figure()
-        sb.heatmap(data=df[selected_list].corr(),annot=True,fmt='.2f',
-            vmin=-1,vmax=1,cmap='coolwarm',linewidths=0.5)
-        st.pyplot(fig2)
-```
-![Alt text](/data/chart08.png)
-![Alt text](/data/chart09.png)
-![Alt text](/data/chart10.png)
 
 
 ## 5️⃣. 저작권, 라이선스 정보
