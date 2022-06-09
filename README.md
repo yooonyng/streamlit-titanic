@@ -27,9 +27,9 @@ http://ec2-15-164-104-66.ap-northeast-2.compute.amazonaws.com:8504/
 # Cabin - 수하물 번호
 # Embarked - 선착장 (C = Cherbourg, Q = Queenstown, S = Southampton)
 ``` 
-☑️ 필요없는 데이터인 'Cabin', 'Ticket', 'PassengerId'는 drop했다.
+☑️ 필요없는 데이터인 'Cabin', 'Ticket'는 drop했다.
 ```python
-train = train.drop(['Cabin', 'Ticket', 'PassengerId'], axis=1)
+train = train.drop(['Cabin', 'Ticket'], axis=1)
 ```
 ☑️ X와 y 나누기
 ```python
